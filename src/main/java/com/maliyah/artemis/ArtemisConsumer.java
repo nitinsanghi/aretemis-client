@@ -26,6 +26,9 @@ public class ArtemisConsumer {
             String brokerUrl = prop.getProperty("brokerUrl");
             String inwardQueue = prop.getProperty("inwardQueue");
 
+            System.out.println(brokerUrl);
+            System.out.println(inwardQueue);
+
             try (ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
                     JMSContext context = factory.createContext(JMSContext.AUTO_ACKNOWLEDGE)) {
 
