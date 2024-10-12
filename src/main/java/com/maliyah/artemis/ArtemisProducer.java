@@ -20,14 +20,8 @@ public class ArtemisProducer {
                 return;
             }
             prop.load(input);
-            // String brokerUrl = "tcp://your-broker-url:61616"; // Replace with your broker URL
-            // String outwardQueue = "queue/outwardQueue"; // Replace with your outward queue
             String brokerUrl = prop.getProperty("brokerUrl");
             String outwardQueue = prop.getProperty("outwardQueue");
-
-            System.out.println(brokerUrl);
-            System.out.println(outwardQueue);
-
             try (ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
                     JMSContext context = factory.createContext(JMSContext.AUTO_ACKNOWLEDGE)) {
 

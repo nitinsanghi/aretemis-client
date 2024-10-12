@@ -20,14 +20,9 @@ public class ArtemisConsumer {
                 System.out.println("Sorry, unable to find config.properties");
                 return;
             }
-            // String brokerUrl = "tcp://your-broker-url:61616"; // Replace with your broker URL
-            // String inwardQueue = "queue/inwardQueue"; // Replace with your inward queue
             prop.load(input);
             String brokerUrl = prop.getProperty("brokerUrl");
             String inwardQueue = prop.getProperty("inwardQueue");
-
-            System.out.println(brokerUrl);
-            System.out.println(inwardQueue);
 
             try (ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
                     JMSContext context = factory.createContext(JMSContext.AUTO_ACKNOWLEDGE)) {
