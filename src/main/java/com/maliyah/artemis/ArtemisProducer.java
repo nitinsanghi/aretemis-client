@@ -22,8 +22,10 @@ public class ArtemisProducer {
             prop.load(input);
             String brokerUrl = prop.getProperty("brokerUrl");
             String outwardQueue = prop.getProperty("outwardQueue");
-            try (ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
-                    JMSContext context = factory.createContext(JMSContext.AUTO_ACKNOWLEDGE)) {
+            try (
+                ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(brokerUrl);
+                JMSContext context = factory.createContext(JMSContext.AUTO_ACKNOWLEDGE);
+            ) {
 
                 Queue queue = context.createQueue(outwardQueue);
                 JMSProducer producer = context.createProducer();
