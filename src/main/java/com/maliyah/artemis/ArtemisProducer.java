@@ -29,10 +29,9 @@ public class ArtemisProducer {
 
                 Queue queue = context.createQueue(outwardQueue);
                 JMSProducer producer = context.createProducer();
-
+                
                 String message = "Test message from ArtemisProducer";
                 producer.send(queue, message);
-
                 System.out.println("Message sent: " + message);
             }
         } catch (Exception e) {

@@ -9,7 +9,7 @@ import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
 public class ArtemisTest {
     public static void main(String[] args) {
 
-        String brokerUrl = "tcp://achmqtest.cbonet.cboroot.om:443";
+        String brokerUrl = "tcp://achmqtest.cbonet.cboroot.om:4443?sslEnabled=true&trustAll=true";
         String outwardQueue = "ach_cbs_RET_outward";
        
         try (
@@ -24,7 +24,8 @@ public class ArtemisTest {
 
             System.out.println("Message sent: " + message);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Connection Error:" + e.getMessage());
+            //e.printStackTrace();
         }
     }
 }
